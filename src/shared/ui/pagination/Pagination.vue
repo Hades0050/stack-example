@@ -1,21 +1,21 @@
 <template>
-  <div class="pagination">
-    <div class="pagination-info">
+  <div :class="style.pagination">
+    <div :class="style['pagination-info']">
       Показано {{ paginationStart }} - {{ paginationEnd }} из {{ totalItems }}
     </div>
 
-    <div class="pagination-controls">
+    <div :class="style['pagination-controls']">
       <button
         @click="handleGoToPage(1)"
         :disabled="currentPage === 1"
-        class="btn-page"
+        :class="style['btn-page']"
       >
         ⏮️
       </button>
       <button
         @click="handleGoToPage(currentPage - 1)"
         :disabled="currentPage === 1"
-        class="btn-page"
+        :class="style['btn-page']"
       >
         ◀️
       </button>
@@ -32,20 +32,20 @@
       <button
         @click="handleGoToPage(currentPage + 1)"
         :disabled="currentPage === totalPages"
-        class="btn-page"
+        :class="style['btn-page']"
       >
         ▶️
       </button>
       <button
         @click="handleGoToPage(totalPages)"
         :disabled="currentPage === totalPages"
-        class="btn-page"
+        :class="style['btn-page']"
       >
         ⏭️
       </button>
     </div>
 
-    <div class="page-size-selector">
+    <div :class="style['page-size-selector']">
       <label>На странице:</label>
       <select v-model="localItemsPerPage" @change="handlePageSizeChange">
         <option
@@ -61,7 +61,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, watch } from 'vue';
+import { ref, watch, useCssModule } from 'vue';
 import type { ISelectOption } from '@shared/ui/select/types';
 
 interface Props {
@@ -97,6 +97,7 @@ const {
 } = defineProps<Props>();
 
 const emit = defineEmits<Emits>();
+const style = useCssModule();
 
 const localItemsPerPage = ref(itemsPerPage);
 
@@ -107,12 +108,12 @@ watch(
   }
 );
 
-const getPageButtonClass = (page: number | string): string => {
-  const classes = ['btn-page'];
+const getPageButtonClass = (page: number | string): string | string[] => {
+  const classes = [style['btn-page']];
   if (currentPage === page) {
-    classes.push('active');
+    classes.push(style.active);
   }
-  return classes.join(' ');
+  return classes;
 };
 
 const handleGoToPage = (page: number | string): void => {
@@ -126,4 +127,4 @@ const handlePageSizeChange = (): void => {
 };
 </script>
 
-<style scoped src="./pagination.css"></style>
+<style module src="./pagination.css"></style>

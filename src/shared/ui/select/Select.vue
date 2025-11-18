@@ -41,7 +41,7 @@ const hasError = computed(() => Boolean(error));
 const errorMessage = computed(() => error || '');
 
 const selectClasses = computed(() => {
-  const classes = [style.select, 'edit-select'];
+  const classes = [style.select];
   if (hasError.value && style.error) {
     classes.push(style.error);
   }

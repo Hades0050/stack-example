@@ -1,6 +1,6 @@
 <template>
   <tr :class="rowClasses">
-    <td v-if="selectable" class="checkbox-cell">
+    <td v-if="selectable">
       <Checkbox v-model="selectedState" />
     </td>
     <td

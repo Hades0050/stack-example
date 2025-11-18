@@ -1,10 +1,7 @@
 <template>
   <thead>
     <tr>
-      <th
-        v-if="selectable"
-        :class="style['checkbox-column']"
-      >
+      <th v-if="selectable">
         <Checkbox v-model="selectAllState" />
       </th>
       <th
@@ -20,12 +17,14 @@
           <component
             v-if="column.headerComponent"
             :is="column.headerComponent"
-            v-bind="column.headerComponentProps ? column.headerComponentProps() : {}"
+            v-bind="
+              column.headerComponentProps ? column.headerComponentProps() : {}
+            "
           />
           <template v-else>{{ column.label }}</template>
         </slot>
         <span v-if="sortColumn === column.key && column.sortable">
-          {{ sortDirection === 'asc' ? '↑' : '↓' }}
+          {{ sortDirection === "asc" ? "↑" : "↓" }}
         </span>
       </th>
     </tr>
@@ -33,28 +32,28 @@
 </template>
 
 <script setup lang="ts" generic="T">
-import { computed } from 'vue';
-import type { ITableColumn } from '@shared/ui/table/types';
-import { Checkbox } from '@shared/ui';
+import { computed } from "vue";
+import type { ITableColumn } from "@shared/ui/table/types";
+import { Checkbox } from "@shared/ui";
 
 interface ITableHeaderProps<T> {
   columns: ITableColumn<T>[];
   sortColumn?: string;
-  sortDirection?: 'asc' | 'desc';
+  sortDirection?: "asc" | "desc";
   selectable?: boolean;
   isAllSelected?: boolean;
   cssModule?: Record<string, string>;
 }
 
 interface ITableHeaderEmits {
-  (e: 'sort', columnKey: string): void;
-  (e: 'toggle-select-all', checked: boolean): void;
+  (e: "sort", columnKey: string): void;
+  (e: "toggle-select-all", checked: boolean): void;
 }
 
 const {
   columns,
   sortColumn,
-  sortDirection = 'asc',
+  sortDirection = "asc",
   selectable = false,
   isAllSelected = false,
   cssModule: style = {},
@@ -65,12 +64,12 @@ const emit = defineEmits<ITableHeaderEmits>();
 const selectAllState = computed({
   get: () => isAllSelected,
   set: (value: boolean) => {
-    emit('toggle-select-all', value);
+    emit("toggle-select-all", value);
   },
 });
 
 const handleSort = (columnKey: string): void => {
-  emit('sort', columnKey);
+  emit("sort", columnKey);
 };
 
 const handleColumnClick = (column: ITableColumn<T>): void => {
@@ -81,4 +80,3 @@ const handleColumnClick = (column: ITableColumn<T>): void => {
   }
 };
 </script>
-

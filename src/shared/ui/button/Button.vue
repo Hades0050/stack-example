@@ -27,16 +27,11 @@ const buttonClasses = computed(() => {
     primary: style['btn-primary'],
     secondary: style['btn-secondary'],
     danger: style['btn-danger'],
-    success: style['btn-success'],
-    cancel: style['btn-cancel'],
   };
   
   const classes: (string | undefined)[] = [style.btn];
   if (variant && variantClassMap[variant]) {
     classes.push(variantClassMap[variant]);
-  }
-  if (disabled && style['btn-disabled']) {
-    classes.push(style['btn-disabled']);
   }
   return classes.filter((cls): cls is string => Boolean(cls));
 });

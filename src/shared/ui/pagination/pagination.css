@@ -39,7 +39,8 @@
   cursor: not-allowed;
 }
 
-.btn-page.active {
+.btn-page.active,
+.active {
   background: #4CAF50;
   color: white;
   border-color: #4CAF50;

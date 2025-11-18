@@ -8,7 +8,6 @@
       :disabled="disabled"
       :class="[
         style.input,
-        'edit-input',
         hasError && style.error,
         disabled && style['input-disabled']
       ]"

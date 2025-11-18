@@ -29,18 +29,8 @@
   font-size: 14px;
 }
 
-.checkbox-column {
-  text-align: center;
-  vertical-align: middle;
-  width: 1%;
-  white-space: nowrap;
-}
-
-:global(.checkbox-cell) {
-  text-align: center;
-  vertical-align: middle;
-  width: 1%;
-  white-space: nowrap;
+.table th span {
+  margin-left: 4px;
 }
 
 .table th.sortable {
@@ -60,7 +50,6 @@
   padding: 12px;
   border-bottom: 1px solid #f0f0f0;
   font-size: 14px;
-  vertical-align: middle;
 }
 
 .table tbody tr {
@@ -164,19 +153,3 @@ tr:global(.editing) select:focus,
   font-size: 18px;
   margin-bottom: 20px;
 }
-
-/* Стили для чекбокса внутри таблицы */
-.table th :global(.checkbox-wrapper),
-.table td :global(.checkbox-wrapper) {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 0;
-  margin: 0;
-}
-
-.table th :global(.checkbox-label),
-.table td :global(.checkbox-label) {
-  display: none;
-}
-

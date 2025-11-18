@@ -1,5 +1,5 @@
 export interface IButtonProps {
-  variant?: 'primary' | 'secondary' | 'danger' | 'success' | 'cancel';
+  variant?: 'primary' | 'secondary' | 'danger';
   disabled?: boolean;
   type?: 'button' | 'submit' | 'reset';
 }
