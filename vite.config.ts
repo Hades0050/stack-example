@@ -4,7 +4,15 @@ import path from 'path'
 
 // https://vite.dev/config/
 export default defineConfig({
-  plugins: [vue()],
+  plugins: [
+    vue({
+      script: {
+        defineModel: true,
+        propsDestructure: true
+      }
+    })
+  ],
+  
   resolve: {
     alias: {
       // Base alias
@@ -21,4 +29,67 @@ export default defineConfig({
       '@shared/lib': path.resolve(__dirname, './src/shared/lib'),
     },
   },
+  
+  // Development server optimization
+  server: {
+    port: 5173,
+    strictPort: false,
+    host: true,
+    open: false,
+    cors: true,
+    hmr: {
+      overlay: true
+    }
+  },
+  
+  // Build optimization
+  build: {
+    target: 'esnext',
+    minify: 'esbuild',
+    rollupOptions: {
+      output: {
+        manualChunks: (id) => {
+          if (id.includes('node_modules')) {
+            if (id.includes('vue')) {
+              return 'vue-vendor'
+            }
+            return 'vendor'
+          }
+        },
+        chunkFileNames: 'assets/js/[name]-[hash].js',
+        entryFileNames: 'assets/js/[name]-[hash].js',
+        assetFileNames: 'assets/[ext]/[name]-[hash].[ext]'
+      }
+    },
+    sourcemap: false,
+    chunkSizeWarningLimit: 1000,
+    cssCodeSplit: true,
+    reportCompressedSize: false,
+    assetsInlineLimit: 4096
+  },
+  
+  // Dependency optimization
+  optimizeDeps: {
+    include: ['vue', 'vue-router'],
+    exclude: []
+  },
+  
+  // CSS optimization
+  css: {
+    devSourcemap: true,
+    preprocessorOptions: {
+      scss: {
+        additionalData: `@import "@/assets/styles/variables.scss";`
+      }
+    }
+  },
+  
+  // Preview server settings
+  preview: {
+    port: 4173,
+    strictPort: false,
+    host: true,
+    open: false,
+    cors: true
+  }
 })
