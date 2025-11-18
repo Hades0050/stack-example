@@ -1,4 +1,4 @@
-import type { IUser, TUserRole, TUserStatus } from '@entities/user/model/types';
+import type { IUser, TUserRole, TUserStatus } from '@entities/user/types';
 import { User } from '@entities/user/model/user';
 import type { ISelectOption } from '@shared/ui';
 

@@ -1,4 +1,4 @@
-import type { IUser, TUserRole, TUserStatus, TUpdateUserDto } from './types';
+import type { IUser, TUserRole, TUserStatus, TUpdateUserDto } from '../types';
 
 export class User {
   name: string;

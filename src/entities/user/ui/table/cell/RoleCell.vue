@@ -12,7 +12,8 @@
 <script setup lang="ts">
 import { computed, toRefs } from 'vue';
 import { Select } from '@shared/ui';
-import { User, getRoleOptions } from '@entities/user/model';
+import { User } from '@entities/user/model/user';
+import { getRoleOptions } from '@entities/user/model/user-helpers';
 import { useActions } from '@entities/user/composables';
 import type { IBaseCellProps } from '@entities/user/ui/table/cell/types';
 

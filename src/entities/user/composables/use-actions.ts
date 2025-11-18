@@ -1,5 +1,5 @@
 import { ref } from 'vue';
-import type { IUser } from '@entities/user/model/types';
+import type { IUser } from '@entities/user/types';
 import { exportToCSV, formatDate } from '@shared/lib';
 import { handleError } from '@entities/user/model/user-helpers';
 import { userManager } from '@entities/user/model/user-manager';

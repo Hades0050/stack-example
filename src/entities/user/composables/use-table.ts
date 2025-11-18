@@ -3,7 +3,7 @@ import { formatDate, formatRelativeTime } from '@shared/lib';
 import { userApi } from '@entities/user/api/user-api';
 import { generateMockUsers } from '@entities/user/model/user-helpers';
 import { userManager } from '@entities/user/model/user-manager';
-import type { IUser, TUserRole, TUserStatus } from '@entities/user/model/types';
+import type { IUser, TUserRole, TUserStatus } from '@entities/user/types';
 
 /**
  * Параметры фильтрации пользователей

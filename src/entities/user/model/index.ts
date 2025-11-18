@@ -1,4 +1,4 @@
-export * from './types';
+export * from '../types';
 export * from './user';
 export * from './user-manager';
 export * from './user-helpers';

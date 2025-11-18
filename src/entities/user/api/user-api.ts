@@ -1,4 +1,4 @@
-import type { IUser, TCreateUserDto, TUpdateUserDto } from '@entities/user/model/types';
+import type { IUser, TCreateUserDto, TUpdateUserDto } from '@entities/user/types';
 
 /**
  * API для работы с пользователями

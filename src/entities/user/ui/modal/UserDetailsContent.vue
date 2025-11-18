@@ -70,8 +70,8 @@
 <script setup lang="ts">
 import { Button, globalModal } from '@shared/ui';
 import { formatDate, formatRelativeTime, getDefaultAvatar } from '@shared/lib';
-import { User } from '@entities/user/model';
-import type { IUser } from '@entities/user/model/types';
+import { User } from '@entities/user/model/user';
+import type { IUser } from '@entities/user/types';
 
 interface Props {
   user: IUser | null;

@@ -1,5 +1,5 @@
 import { reactive } from 'vue';
-import type { IUser, TUpdateUserDto } from '@entities/user/model/types';
+import type { IUser, TUpdateUserDto } from '@entities/user/types';
 import { userApi } from '@entities/user/api/user-api';
 import { User } from '@entities/user/model/user';
 

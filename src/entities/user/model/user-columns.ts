@@ -1,4 +1,4 @@
-import type { IUser } from '@entities/user/model/types';
+import type { IUser } from '@entities/user/types';
 import { formatDate, formatRelativeTime, getActivityClass } from '@shared/lib';
 import type { ITableColumn } from '@shared/ui';
 import {

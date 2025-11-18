@@ -48,8 +48,10 @@
 import { ref, computed } from 'vue';
 import { Input, Select, Checkbox, Button, globalModal } from '@shared/ui';
 import { validateEmail as validateEmailUtil } from '@shared/lib';
-import type { TCreateUserDto } from '@entities/user/model/types';
-import { getRoleOptions, User, userManager } from '@entities/user/model';
+import type { TCreateUserDto } from '@entities/user/types';
+import { getRoleOptions } from '@entities/user/model/user-helpers';
+import { User } from '@entities/user/model/user';
+import { userManager } from '@entities/user/model/user-manager';
 
 type TFieldName = keyof Pick<TCreateUserDto, 'name' | 'email'>;
 type TValidationRule = (value: string) => string;

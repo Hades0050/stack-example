@@ -50,13 +50,11 @@
 <script setup lang="ts">
 import { ref, useCssModule, computed } from 'vue';
 import { Button, Spinner, Table } from '@shared/ui';
-import {
-  UserTableHeader,
-  UserTableFilters,
-  useTable,
-  useActions,
-} from '@entities/user';
-import type { IUser } from '@entities/user/model/types';
+import UserTableHeader from '@entities/user/ui/table/UserTableHeader.vue';
+import UserTableFilters from '@entities/user/ui/table/UserTableFilters.vue';
+import { useTable } from '@entities/user/composables/use-table';
+import { useActions } from '@entities/user/composables/use-actions';
+import type { IUser } from '@entities/user/types';
 import { createUserColumns } from '@entities/user/model/user-columns';
 
 const style = useCssModule();

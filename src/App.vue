@@ -49,7 +49,7 @@ const handleShowNew = (): void => {
 }
 
 .app-content {
-  max-width: 80rem;
+  max-width: 90rem;
   margin: 0 auto;
 }
 
