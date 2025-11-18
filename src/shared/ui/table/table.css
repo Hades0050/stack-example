@@ -1,0 +1,182 @@
+.table-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.table-wrapper {
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table thead {
+  background: #f5f5f5;
+  border-bottom: 2px solid #ddd;
+}
+
+.table th {
+  padding: 12px;
+  text-align: left;
+  font-weight: 600;
+  color: #555;
+  font-size: 14px;
+}
+
+.checkbox-column {
+  text-align: center;
+  vertical-align: middle;
+  width: 1%;
+  white-space: nowrap;
+}
+
+:global(.checkbox-cell) {
+  text-align: center;
+  vertical-align: middle;
+  width: 1%;
+  white-space: nowrap;
+}
+
+.table th.sortable {
+  cursor: pointer;
+  user-select: none;
+}
+
+.table th.sortable:hover {
+  background: #eeeeee;
+}
+
+.table th.active {
+  color: #4CAF50;
+}
+
+.table td {
+  padding: 12px;
+  border-bottom: 1px solid #f0f0f0;
+  font-size: 14px;
+  vertical-align: middle;
+}
+
+.table tbody tr {
+  transition: background 0.2s;
+}
+
+.table tbody tr:hover {
+  background: #fafafa;
+}
+
+.table tbody tr.selected {
+  background: #e8f5e9;
+}
+
+/* Класс для неактивных строк */
+.inactive {
+  opacity: 0.6 !important;
+}
+
+.table tbody tr.inactive {
+  opacity: 0.6;
+}
+
+.table tbody tr:global(.inactive) {
+  opacity: 0.6;
+}
+
+/* Класс для редактируемых строк - используем :global чтобы не хэшировать */
+:global(.editing) {
+  background: #fff9c4 !important;
+}
+
+.table tbody tr:global(.editing) {
+  background: #fff9c4 !important;
+}
+
+/* Редактируемая неактивная строка должна быть бледной */
+.table tbody tr:global(.editing):global(.inactive),
+.table tbody tr:global(.editing).inactive,
+tr:global(.editing):global(.inactive),
+tr:global(.editing).inactive {
+  opacity: 0.6 !important;
+}
+
+/* Стили для инпутов и селектов в режиме редактирования */
+.table tbody tr:global(.editing) input,
+.table tbody tr:global(.editing) select,
+tr:global(.editing) input,
+tr:global(.editing) select,
+:global(.editing) td input,
+:global(.editing) td select {
+  border: 1px solid #4CAF50 !important;
+  width: 100%;
+  padding: 6px 10px !important;
+  border-radius: 4px !important;
+  font-size: 14px !important;
+  background: transparent !important;
+}
+
+.table tbody tr:global(.editing) input:focus,
+.table tbody tr:global(.editing) select:focus,
+tr:global(.editing) input:focus,
+tr:global(.editing) select:focus,
+:global(.editing) td input:focus,
+:global(.editing) td select:focus {
+  outline: none !important;
+  border-color: #45a049 !important;
+  box-shadow: 0 0 0 2px rgba(76, 175, 80, 0.1) !important;
+}
+
+/* Убираем отступы у wrapper'ов внутри редактируемых ячеек */
+:global(.editing) td > div {
+  width: 100%;
+}
+
+/* Стили для edit-input и edit-select внутри редактируемой строки */
+:global(.editing) :global(.edit-input),
+:global(.editing) :global(.edit-select) {
+  background: transparent !important;
+  border: 1px solid #4CAF50 !important;
+  padding: 6px 10px !important;
+  border-radius: 4px !important;
+  font-size: 14px !important;
+  width: 100%;
+}
+
+:global(.editing) :global(.edit-input):focus,
+:global(.editing) :global(.edit-select):focus {
+  outline: none !important;
+  border-color: #45a049 !important;
+  box-shadow: 0 0 0 2px rgba(76, 175, 80, 0.1) !important;
+}
+
+.no-data {
+  padding: 60px 20px;
+  text-align: center;
+  color: #999;
+}
+
+.no-data p {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+/* Стили для чекбокса внутри таблицы */
+.table th :global(.checkbox-wrapper),
+.table td :global(.checkbox-wrapper) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0;
+  margin: 0;
+}
+
+.table th :global(.checkbox-label),
+.table td :global(.checkbox-label) {
+  display: none;
+}
+

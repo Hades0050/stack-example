@@ -1,0 +1,39 @@
+.input-wrapper {
+  display: flex;
+  flex-direction: column;
+  width: auto;
+  gap: 0;
+}
+
+.input {
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+  line-height: normal;
+  box-sizing: border-box;
+}
+
+.input:focus {
+  outline: none;
+  border-color: #4CAF50;
+}
+
+.input.error,
+.input-error {
+  border-color: #f44336;
+}
+
+.input:disabled,
+.input-disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.error-text {
+  color: #f44336;
+  font-size: 12px;
+  margin-top: 5px;
+  display: block;
+}
+
